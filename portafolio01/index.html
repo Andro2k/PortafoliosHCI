@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio de José Luis Andino Padilla – Estudiante de Ingeniería en Computación." />
+  <title>José Luis Andino | Portafolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/108537136?v=4" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ICONOS -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.2 11.4 11.4 0 003.6.6 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.3.2 2.5.6 3.6a1 1 0 01-.3 1L6.6 10.8z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 016.2 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.5 8.5 0 019.8 3.5 8.5 8.5 0 1020.5 14.2z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12.031 21.054c-1.547 0-3.078-.396-4.444-1.155l-4.908 1.285 1.31-4.786a8.918 8.918 0 0 1-1.283-4.597C2.706 6.837 6.883 2.66 11.968 2.66c2.476 0 4.802.964 6.554 2.716a9.232 9.232 0 0 1 2.706 6.558c0 5.086-4.177 9.12-9.197 9.12zm0-16.735c-4.183 0-7.592 3.41-7.592 7.592 0 1.338.35 2.646 1.015 3.79l-.83 3.03 3.107-.815a7.555 7.555 0 0 0 4.3 1.328c4.183 0 7.592-3.41 7.592-7.592 0-2.028-.79-3.935-2.224-5.368A7.545 7.545 0 0 0 12.03 4.319zm4.167 10.37c-.228-.114-1.353-.668-1.562-.745-.21-.077-.363-.114-.515.114-.153.228-.592.745-.726.898-.134.153-.267.172-.495.058-.228-.114-.966-.356-1.84-1.134-.68-.606-1.14-1.353-1.274-1.582-.134-.228-.014-.352.1-.466.104-.104.228-.267.342-.4.114-.134.153-.228.228-.38.077-.153.038-.287-.018-.402-.058-.114-.515-1.242-.707-1.7-.186-.447-.377-.386-.515-.392l-.44-.006c-.153 0-.402.058-.612.287-.21.228-.802.784-.802 1.91 0 1.127.82 2.216.935 2.368.114.153 1.614 2.464 3.908 3.454.545.236.97.377 1.302.482.547.174 1.045.15 1.438.09.438-.066 1.353-.553 1.543-1.087.19-.534.19-.992.134-1.087-.058-.096-.21-.153-.438-.267z"/></symbol>
+  </svg>
+
+  <!-- NAVEGACIÓN -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#sobre-mi">JA</a>
+      <nav class="topbar__nav">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#experiencias">Experiencias</a>
+        <a href="#formacion">Formación</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+        <svg class="icon theme-toggle__moon"><use href="#i-moon" /></svg>
+        <svg class="icon theme-toggle__sun"><use href="#i-sun" /></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- 1. SOBRE MÍ -->
+    <section class="hero section" id="sobre-mi">
+      <img src="https://avatars.githubusercontent.com/u/108537136?v=4" alt="José Luis Andino Padilla" class="hero__profile-img">
+      <h1 class="hero__name">José Luis Andino</h1>
+      <p class="hero__role">Estudiante de Ingeniería en Computación | EPN</p>
+      <p class="hero__objective">
+        Apasionado por el desarrollo de software y la ciberseguridad. Busco aportar valor creando soluciones tecnológicas eficientes, escalables y seguras, participando activamente en el ciclo completo de vida de los proyectos.
+      </p>
+    </section>
+
+    <!-- CARRUSEL DE LOGOS (TECNOLOGÍAS Y EPN) -->
+    <div class="marquee-container" aria-hidden="true">
+      <div class="marquee">
+        <!-- Grupo 1 -->
+        <div class="marquee__group">
+          <span class="epn-text-logo">EPN</span>
+          <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" class="marquee-logo logo-black" />
+          <img src="https://cdn.simpleicons.org/sentry/362D59" alt="Sentry" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/n8n/FF6D5A" alt="n8n" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/kalilinux/557C94" alt="Kali Linux" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/raspberrypi/C51A4A" alt="Raspberry Pi" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/obsstudio/302E31" alt="OBS Studio" class="marquee-logo logo-black" />
+        </div>
+        <!-- Grupo 2 (Duplicado para efecto infinito) -->
+        <div class="marquee__group">
+          <span class="epn-text-logo">EPN</span>
+          <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" class="marquee-logo logo-black" />
+          <img src="https://cdn.simpleicons.org/sentry/362D59" alt="Sentry" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/n8n/FF6D5A" alt="n8n" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/kalilinux/557C94" alt="Kali Linux" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/raspberrypi/C51A4A" alt="Raspberry Pi" class="marquee-logo" />
+          <img src="https://cdn.simpleicons.org/obsstudio/302E31" alt="OBS Studio" class="marquee-logo logo-black" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ESPECIALIDADES -->
+    <section class="section" id="especialidades">
+      <h2 class="section__title">Especialidades</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">Python & Arquitectura de Software</span>
+        <span class="skill-tag">Ciberseguridad & Hacking Ético</span>
+        <span class="skill-tag">Gestión y Seguridad de Redes</span>
+        <span class="skill-tag">Docker & Contenedores</span>
+        <span class="skill-tag">Resolución de Problemas</span>
+        <span class="skill-tag">Automatización (n8n, Scripts)</span>
+      </div>
+    </section>
+
+    <!-- 3. EXPERIENCIAS -->
+    <section class="section" id="experiencias">
+      <h2 class="section__title">Experiencias</h2>
+      <div class="grid--2">
+        <article class="card">
+          <header class="card__header">
+            <h3 class="card__title">Proyectos de Desarrollo e Infraestructura</h3>
+            <span class="card__meta">Actual</span>
+          </header>
+          <p class="card__desc">
+            Desarrollo de proyectos independientes utilizando Python. Implementación de monitoreo con Sentry y gestión de entornos contenerizados con Docker. Mantenimiento de repositorios en GitHub asegurando buenas prácticas y seguridad del código.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. FORMACIÓN -->
+    <section class="section" id="formacion">
+      <h2 class="section__title">Formación Académica y Continua</h2>
+      <div class="grid--2">
+        <article class="card">
+          <header class="card__header">
+            <h3 class="card__title">Ingeniería en Computación</h3>
+            <span class="card__meta">2020 - Actual</span>
+          </header>
+          <p class="card__desc">Escuela Politécnica Nacional (EPN), Quito.</p>
+        </article>
+        
+        <article class="card">
+          <header class="card__header">
+            <h3 class="card__title">Inglés Avanzado (Level 7)</h3>
+            <span class="card__meta">2025</span>
+          </header>
+          <p class="card__desc">CEC – Escuela Politécnica Nacional (80h).</p>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h3 class="card__title">Ciberseguridad & Gestión de Riesgos</h3>
+            <span class="card__meta">2025 - 2026</span>
+          </header>
+          <p class="card__desc">Formación intensiva en CompTIA Security+, Criptografía y Hacking de Redes Wi-Fi.</p>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h3 class="card__title">Fundamentos de Inteligencia Artificial</h3>
+            <span class="card__meta">2025</span>
+          </header>
+          <p class="card__desc">EPN – XII Jornadas JISIC (50h).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. CONTACTO -->
+    <section class="section" id="contacto">
+      <h2 class="section__title">Contacto</h2>
+      <p class="card__desc">¿Interesado en colaborar o aprender más sobre mi trabajo? Contáctame a través de los siguientes canales.</p>
+      
+      <div class="contact-links">
+        <a href="mailto:andronix100crack@gmail.com" class="contact-link">
+          <svg class="icon"><use href="#i-mail" /></svg> andronix100crack@gmail.com
+        </a>
+        <a href="tel:0984671372" class="contact-link">
+          <svg class="icon"><use href="#i-phone" /></svg> 0984671372
+        </a>
+        <a href="https://github.com/Andro2k" target="_blank" rel="noopener" class="contact-link">
+          <svg class="icon"><use href="#i-github" /></svg> github.com/Andro2k
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>José Luis Andino Padilla, Quito, Ecuador</p>
+  </footer>
+  <a href="https://wa.me/593984671372" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
+    <svg class="icon"><use href="#i-whatsapp" /></svg>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>

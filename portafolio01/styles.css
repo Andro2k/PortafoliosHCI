@@ -1,0 +1,261 @@
+/* ==========================================================
+   1. TOKENS Y VARIABLES
+   ========================================================== */
+:root {
+  color-scheme: light;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --bg: #eef1f6;
+  --surface: #ffffff;
+  --line: #d3dae8;
+  --ink: #0b1b3a;
+  --ink-soft: #4a5878;
+  --blue: #2447f5;
+  --radius: 14px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --container: 1040px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #080e1f;
+  --surface: #111a33;
+  --line: #25315a;
+  --ink: #eaeffc;
+  --ink-soft: #9aa8cc;
+  --blue: #8aa4ff;
+}
+
+/* ==========================================================
+   2. BASE
+   ========================================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--ink); line-height: 1.6; min-height: 100vh; }
+ul { list-style: none; }
+a { color: var(--blue); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.container { width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.icon { width: 1.1rem; height: 1.1rem; fill: currentColor; flex: none; }
+
+/* ==========================================================
+   3. NAVEGACIÓN
+   ========================================================== */
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+}
+.topbar__inner {
+  width: min(100% - 2.5rem, var(--container)); margin-inline: auto;
+  display: flex; align-items: center; justify-content: space-between; height: 4rem;
+}
+.brand { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+.topbar__nav { display: flex; gap: 1.5rem; margin-left: auto; margin-right: 1.5rem; }
+.topbar__nav a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+.topbar__nav a:hover { color: var(--ink); }
+
+.theme-toggle {
+  position: relative; width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--ink);
+  cursor: pointer; transition: border-color 0.2s, transform 0.3s var(--ease);
+}
+.theme-toggle:hover { border-color: var(--blue); transform: rotate(15deg); }
+.theme-toggle .icon { position: absolute; inset: 0; margin: auto; transition: transform 0.5s var(--ease), opacity 0.3s; }
+.theme-toggle__sun { transform: rotate(-90deg) scale(0); opacity: 0; }
+.theme-toggle__moon { transform: rotate(0) scale(1); opacity: 1; }
+:root[data-theme="dark"] .theme-toggle__sun { transform: rotate(0) scale(1); opacity: 1; }
+:root[data-theme="dark"] .theme-toggle__moon { transform: rotate(90deg) scale(0); opacity: 0; }
+
+/* ==========================================================
+   4. HERO (SOBRE MÍ)
+   ========================================================== */
+.hero { padding: 4rem 0 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.hero__profile-img {
+  width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--surface); box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 10%, transparent);
+  margin-bottom: 1.5rem; animation: fade-in 0.8s ease both;
+}
+.hero__name { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+.hero__role { font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; color: var(--ink-soft); }
+.hero__objective { max-width: 65ch; margin: 1.5rem auto 0; font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft); }
+
+/* ==========================================================
+   5. SECCIONES Y GRIDS
+   ========================================================== */
+.section { padding-block: 3rem; scroll-margin-top: 5rem; }
+.section__title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: 2rem; letter-spacing: -0.02em; }
+.grid--2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1rem; }
+
+/* ==========================================================
+   6. CARDS
+   ========================================================== */
+.card { background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius); transition: border-color 0.25s; padding: 1.5rem; }
+.card:hover { border-color: var(--blue); }
+.card__header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.card__title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; }
+.card__meta { font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; background: var(--bg); padding: 0.2rem 0.6rem; border-radius: 6px; }
+.card__desc { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ==========================================================
+   7. HABILIDADES (ESPECIALIDADES)
+   ========================================================== */
+.skills-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.skill-tag { 
+  padding: 0.6rem 1.2rem; border: 1px solid var(--line); border-radius: 99px; 
+  background: var(--surface); font-weight: 500; font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+.skill-tag:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+
+/* ==========================================================
+   8. CONTACTO (CHIPS) Y FOOTER
+   ========================================================== */
+.contact-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.contact-link {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius);
+  color: var(--ink); text-decoration: none; font-weight: 500; transition: all 0.2s;
+}
+.contact-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-3px); }
+
+.footer { text-align: center; padding: 3rem 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+/* ==========================================================
+   9. ANIMACIONES Y RESPONSIVO
+   ========================================================== */
+@keyframes fade-in { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+@media (max-width: 768px) { .topbar__nav { display: none; } }
+
+/* ==========================================================
+   10. BOTÓN FLOTANTE WHATSAPP
+   ========================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px color-mix(in srgb, #25d366 40%, transparent);
+  z-index: 100;
+  transition: transform 0.3s var(--ease), background-color 0.3s;
+}
+
+.whatsapp-float:hover {
+  background-color: #20ba56;
+  transform: translateY(-5px) scale(1.05);
+}
+
+.whatsapp-float .icon {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+
+/* Reducimos el tamaño un poco en móviles para que no estorbe */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+  .whatsapp-float .icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* ==========================================================
+   11. CARRUSEL DE TECNOLOGÍAS (MARQUEE)
+   ========================================================== */
+.marquee-container {
+  overflow: hidden;
+  padding: 2.5rem 0;
+  margin: 1rem 0 3rem;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+}
+
+.marquee {
+  display: flex;
+  width: fit-content;
+  animation: scroll-marquee 30s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused; /* Se pausa si el usuario pasa el mouse */
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding-right: 4rem; /* Debe ser igual al gap */
+}
+
+.marquee-logo {
+  height: 2.4rem;
+  width: auto;
+  /* Estado normal: grises y un poco transparentes */
+  filter: grayscale(100%) opacity(0.5);
+  transition: filter 0.3s ease, transform 0.3s var(--ease);
+}
+
+.marquee-logo:hover {
+  /* Al pasar el mouse recuperan su color original */
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.15);
+}
+
+.epn-text-logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+  letter-spacing: -0.05em;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.epn-text-logo:hover {
+  opacity: 1;
+  color: var(--blue);
+  transform: scale(1.1);
+}
+
+/* Ajustes automáticos para Modo Oscuro */
+:root[data-theme="dark"] .marquee-logo {
+  /* Los hacemos más claros para que contrasten con el fondo oscuro */
+  filter: grayscale(100%) opacity(0.6) brightness(1.5) contrast(0.5);
+}
+
+:root[data-theme="dark"] .marquee-logo:hover {
+  filter: grayscale(0%) opacity(1) brightness(1) contrast(1);
+}
+
+/* Logos que son originalmente negros (GitHub, OBS) necesitan invertirse en modo oscuro al hacer hover */
+:root[data-theme="dark"] .logo-black:hover {
+  filter: invert(1);
+}
+
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .marquee__group { gap: 2.5rem; padding-right: 2.5rem; }
+  .marquee-logo { height: 1.8rem; }
+  .epn-text-logo { font-size: 1.6rem; }
+}
